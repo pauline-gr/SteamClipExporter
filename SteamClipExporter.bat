@@ -1,8 +1,8 @@
 :: =============================================================================
-:: Script de conversion automatique Steam — par Pauline-gr
+:: Script de conversion automatique Steam
 :: Version : 1.0.0
 :: Date de création : 21/03/2025
-:: GitHub : https://github.com/pauline-gr
+:: GitHub : https://github.com/pauline-gr/SteamClipExporter
 :: Description : Automatisation de l'export des clips Steam avec FFmpeg
 :: =============================================================================
 @echo off
@@ -20,7 +20,8 @@ set "COLORBLIND=0"
 for /f %%a in ('echo prompt $E ^| cmd') do set "ESC=%%a"
 
 :: === CREATION DES DOSSIERS DE SORTIE / CREATE OUTPUT FOLDERS
-set "EXPORT_ROOT=D:\EnregistrementsSteam\generated_mp4"
+set "SCRIPT_DIR=%~dp0"
+set "EXPORT_ROOT=%SCRIPT_DIR%generated_mp4"
 set "EXPORT_CLIPS=%EXPORT_ROOT%\clips"
 set "EXPORT_VIDEOS=%EXPORT_ROOT%\video"
 if not exist "%EXPORT_CLIPS%" mkdir "%EXPORT_CLIPS%"
@@ -30,7 +31,7 @@ if not exist "%EXPORT_VIDEOS%" mkdir "%EXPORT_VIDEOS%"
 call :logInfo "Scanning folders" "Recherche des dossiers"
 echo.
 
-for /f "delims=" %%F in ('dir /s /b /ad D:\EnregistrementsSteam ^| findstr /i "\\fg_"') do (
+for /f "delims=" %%F in ('dir /s /b /ad "%SCRIPT_DIR%" ^| findstr /i "\\fg_"') do (
     if exist "%%F\init-stream0.m4s" (
         call :processFolder "%%F"
     )

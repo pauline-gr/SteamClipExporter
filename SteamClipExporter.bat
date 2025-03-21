@@ -11,7 +11,8 @@ setlocal enabledelayedexpansion
 :: === PARAMETRES DU SCRIPT / SCRIPT SETTINGS
 :: Choisir la langue : FR ou EN / Set the language: FR or EN
 set "LANG=FR"
-:: Activer/Désactiver le mode daltonien (1 = actif, 0 = inactif) / Enable/Disable colorblind mode (1 = enabled, 0 = disabled)
+:: Mode accessibilité visuelle (1 = actif, 0 = inactif) / Colorblind mode (1 = enabled, 0 = disabled)
+:: Ce mode permet de ne pas utiliser les couleurs pour les messages / This mode disables colors for messages
 set "COLORBLIND=0"
 
 :: === Activation des couleurs ANSI / Enable ANSI colors
@@ -154,12 +155,18 @@ exit /b
 
 :: === AFFICHAGE WARNING EN ORANGE / DISPLAY WARNING IN ORANGE
 :logWarning
-if /i "%COLORBLIND%"=="1" (
-    echo %~1
-    echo %~2
+if "%COLORBLIND%"=="1" (
+    if /i "%LANG%"=="FR" (
+        echo %~2
+    ) else (
+        echo %~1
+    )
 ) else (
-    echo !ESC![33m%~1!ESC![0m
-    echo !ESC![33m%~2!ESC![0m
+    if /i "%LANG%"=="FR" (
+        echo !ESC![33m%~2!ESC![0m
+    ) else (
+        echo !ESC![33m%~1!ESC![0m
+    )
 )
 echo.
 exit /b

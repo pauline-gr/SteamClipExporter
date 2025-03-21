@@ -24,7 +24,7 @@ Ce script permet de convertir automatiquement les clips enregistrés par Steam a
 ---
 
 ## 📅 Installation
-1. **Télécharger le script** depuis le dépôt GitHub
+1. **Télécharger le script** depuis le dépôt GitHub :warning: Choisissiez la version adaptée à votre configuration de FFmpeg ([avec ou sans ajout au PATH](docs/installation_ffmpeg.md))
 2. **Placer le fichier `.bat`** dans le dossier contenant les enregistrements Steam (chez moi j'ai nommé le dossier EnregistrementsSteam)
 
 ![](./images/enregistrementssteam_avec_bat.png)

@@ -24,7 +24,7 @@ This script automatically converts Steam-recorded clips to `.mp4` format, making
 ---
 
 ## 📅 Installation
-1. **Download the script** from the GitHub repository
+1. **Download the script** from the GitHub repository :warning: Choose the version adapted to your FFmpeg configuration ([with or without PATH addition](docs/installation_ffmpeg_EN.md))
 2. **Place the `.bat` file** in the folder containing your Steam recordings (in my case, I named it `EnregistrementsSteam`)
 
 ![](./images/enregistrementssteam_avec_bat.png)

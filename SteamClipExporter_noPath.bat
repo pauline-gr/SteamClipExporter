@@ -42,7 +42,6 @@ call :logInfo "Done" "Termine"
 pause
 exit /b
 
-
 :: === TRAITEMENT D'UN DOSSIER / PROCESS A FOLDER
 :processFolder
 setlocal enabledelayedexpansion
@@ -105,10 +104,10 @@ if errorlevel 1 (
 :: === EXPORT / RUN EXPORT
 if !has_audio! EQU 1 (
     call :logInfo "Export with audio..." "Export avec audio..."
-    ffmpeg -i !concat_video! -i !concat_audio! -c:v copy -c:a aac -b:a 128k -map 0:v:0 -map 1:a:0 -movflags faststart "!export_path!" >nul 2>&1
+    "%~dp0ffmpeg.exe" -i !concat_video! -i !concat_audio! -c:v copy -c:a aac -b:a 128k -map 0:v:0 -map 1:a:0 -movflags faststart "!export_path!" >nul 2>&1
 ) else (
     call :logInfo "Export without audio..." "Export sans audio..."
-    ffmpeg -i !concat_video! -c:v copy -an -movflags faststart "!export_path!" >nul 2>&1
+    "%~dp0ffmpeg.exe" -i !concat_video! -c:v copy -an -movflags faststart "!export_path!" >nul 2>&1
 )
 
 popd >nul

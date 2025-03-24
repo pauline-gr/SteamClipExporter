@@ -7,7 +7,9 @@
 - **FFmpeg installé** ([Voir le guide d'installation](docs/installation_ffmpeg.md))
 
 ## 📌 Mais pourquoi faire ?
-Steam permet l'enregistrement de vidéos de gameplay, mais les fichiers générés sont difficiles à utiliser et nécessitent steam ou un outil de conversion pour être directement lisibles.
+Steam permet l'enregistrement de vidéos de gameplay, mais l'export en fichier mp4 ne peut se faire que depuis l'interface de Steam et pour un seul fichier à la fois. 
+
+Ce script permet de convertir automatiquement les clips enregistrés par Steam au format `.mp4` sans avoir à les ouvrir un par un dans steam.
 
 Vous pouvez paramétrer le dossier de sauvegarde des enregistrements dans les paramètres de Steam. J'ai choisi de les enregistrer dans un dossier `EnregistrementsSteam`. Le contenu de ce dossier ressemble à ceci:
 
@@ -16,8 +18,6 @@ Vous pouvez paramétrer le dossier de sauvegarde des enregistrements dans les pa
 Si on regarde le contenu de ces dossiers, on trouve des fichiers `.m4s` qui sont des fragments de vidéos. Par exemple, pour un clip de 30 secondes, on peut avoir de nombreux fichiers `.m4s` qui ne sont pas directement lisibles sur notre machine, comme dans l'exemple ci-dessous:
 
 ![](./images/exemple_contenu_dossier.png)
-
-Ce script permet de convertir automatiquement les clips enregistrés par Steam au format `.mp4`, afin de les rendre exploitables dans n'importe quel logiciel de montage vidéo.
 
 🔹 Ce script `.bat` utilise `FFmpeg` pour reconstruire les vidéos en `.mp4` sans perte de qualité.
 

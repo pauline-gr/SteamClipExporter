@@ -23,41 +23,7 @@ L'outil d'enregistrement intégré à Steam permet bien plus que la simple captu
 - Chaque clip peut être **partagé via un lien** avec vos amis Steam ou sur d'autres plateformes.
 - Vous pouvez également **sauvegarder localement** chaque extrait pour l'utiliser ou le monter avec un autre logiciel.
 
-Ces options sont accessibles via l'interface Steam, généralement dans la bibliothèque ou depuis la fiche du jeu concerné. 
-
----
-
-## 📁 Comprendre la structure des fichiers
-
-Chaque clip est enregistré dans un dossier préfixé par `fg_`, contenant :
-
-- Un fichier `init-stream0.m4s` : le début de la vidéo
-- Des fichiers `chunk-stream0-xxxxx.m4s` : les fragments vidéo suivants
-- (Optionnel) `init-stream1.m4s` + `chunk-stream1-xxxxx.m4s` : les fragments audio si Steam en a enregistré
-
-Exemple :
-
-```
-fg_1234567890\
-├── init-stream0.m4s
-├── chunk-stream0-00001.m4s
-├── chunk-stream0-00002.m4s
-├── ...
-├── init-stream1.m4s
-├── chunk-stream1-00001.m4s
-└── ...
-```
-
----
-
-## ❌ Problèmes des fichiers .m4s
-
-- Les fichiers `.m4s` ne sont pas lisibles directement dans la plupart des lecteurs vidéo
-- Ils doivent être concaténés et remuxés pour devenir un fichier `.mp4` utilisable
-
----
-
-## ✅ Solution
+Ces options sont accessibles via l'interface Steam, généralement dans la bibliothèque ou depuis la fiche du jeu concerné. Cependant il n'est possible d'exporter les vidéos qu'une par une, ce qui peut être fastidieux si vous avez de nombreux clips à traiter.
 
 Le script de conversion fourni dans ce dépôt automatise cette opération :
 
